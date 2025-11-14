@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Predictor - ScoreSight</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid" style="padding: 0 2rem;">
+      <a class="navbar-brand" href="#">⚽ ScoreSight</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="predict.html">Predict Match</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">AI Predictor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link user-welcome" href="#"><span class="user-icon">👤</span> Welcome, <span id="userNameNav">User</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout-link" id="logoutBtn" href="#" style="cursor: pointer;">🚪 Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="ai-predictor-container">
+    <!-- Header -->
+    <div class="ai-header">
+      <h1>🤖 AI Predictor Insights</h1>
+      <p>Unlock the power of machine learning in football prediction</p>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="ai-cards-grid">
+      <!-- Card 1: How does our AI work? -->
+      <div class="ai-info-card glass-card card-1">
+        <div class="card-icon">🧠</div>
+        <h3>How Does Our AI Work?</h3>
+        <div class="card-content">
+          <p>Our advanced machine learning model analyzes hundreds of historical EPL matches, learning patterns from team performance, player statistics, match conditions, and historical outcomes. Using a sophisticated gradient boosting classifier, the model identifies complex relationships between match features and final results.</p>
+          <ul class="feature-list">
+            <li>✓ Analyzes 15+ match statistics</li>
+            <li>✓ Historical data from 10 seasons</li>
+            <li>✓ Real-time prediction accuracy</li>
+            <li>✓ Continuous model improvement</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2: What's our model accuracy? -->
+      <div class="ai-info-card glass-card card-2">
+        <div class="card-icon">📊</div>
+        <h3>What's Our Model Accuracy?</h3>
+        <div class="card-content">
+          <p>ScoreSight's model achieves impressive accuracy metrics across multiple dimensions:</p>
+          <div class="accuracy-metrics">
+            <div class="metric-item">
+              <span class="metric-label">Match Outcome Accuracy</span>
+              <div class="metric-bar">
+                <div class="metric-fill" style="width: 75%"></div>
+              </div>
+              <span class="metric-value">75%</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Goalline Prediction</span>
+              <div class="metric-bar">
+                <div class="metric-fill" style="width: 68%"></div>
+              </div>
+              <span class="metric-value">68%</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Draw Prediction</span>
+              <div class="metric-bar">
+                <div class="metric-fill" style="width: 72%"></div>
+              </div>
+              <span class="metric-value">72%</span>
+            </div>
+          </div>
+          <p style="margin-top: 15px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">
+            📌 Note: These metrics represent performance on historical test data. Real-world accuracy may vary.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: Future upgrade plan -->
+      <div class="ai-info-card glass-card card-3">
+        <div class="card-icon">🚀</div>
+        <h3>Future Upgrade Plan</h3>
+        <div class="card-content">
+          <p>We're constantly innovating to improve prediction accuracy and user experience:</p>
+          <div class="roadmap">
+            <div class="roadmap-item">
+              <div class="roadmap-marker">Q1</div>
+              <p><strong>Live Match Analytics</strong> - Real-time predictions during matches</p>
+            </div>
+            <div class="roadmap-item">
+              <div class="roadmap-marker">Q2</div>
+              <p><strong>Player Injury Integration</strong> - Factor in team roster changes</p>
+            </div>
+            <div class="roadmap-item">
+              <div class="roadmap-marker">Q3</div>
+              <p><strong>Weather & Conditions</strong> - Incorporate environmental factors</p>
+            </div>
+            <div class="roadmap-item">
+              <div class="roadmap-marker">Q4</div>
+              <p><strong>Betting Odds API</strong> - Compare predictions with market data</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Performance Chart Placeholder -->
+    <div class="performance-section glass-card">
+      <h3 style="color: #00d4ff; margin-bottom: 25px;">📈 Model Performance Over Time</h3>
+      <div class="chart-placeholder">
+        <svg viewBox="0 0 400 200" style="width: 100%; height: auto;">
+          <!-- Grid -->
+          <line x1="40" y1="150" x2="380" y2="150" stroke="rgba(0, 212, 255, 0.2)" stroke-width="1"/>
+          <line x1="40" y1="100" x2="380" y2="100" stroke="rgba(0, 212, 255, 0.2)" stroke-width="1"/>
+          <line x1="40" y1="50" x2="380" y2="50" stroke="rgba(0, 212, 255, 0.2)" stroke-width="1"/>
+          
+          <!-- Line chart -->
+          <polyline 
+            points="50,130 100,110 150,95 200,85 250,90 300,70 350,60" 
+            fill="none" 
+            stroke="url(#gradient)" 
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          
+          <!-- Gradient -->
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#00ffcc;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Points -->
+          <circle cx="50" cy="130" r="4" fill="#00d4ff"/>
+          <circle cx="100" cy="110" r="4" fill="#00d4ff"/>
+          <circle cx="150" cy="95" r="4" fill="#00d4ff"/>
+          <circle cx="200" cy="85" r="4" fill="#00ffcc"/>
+          <circle cx="250" cy="90" r="4" fill="#00ffcc"/>
+          <circle cx="300" cy="70" r="4" fill="#00ffcc"/>
+          <circle cx="350" cy="60" r="4" fill="#00ffcc"/>
+          
+          <!-- Axes -->
+          <line x1="40" y1="20" x2="40" y2="150" stroke="#00d4ff" stroke-width="2"/>
+          <line x1="40" y1="150" x2="380" y2="150" stroke="#00d4ff" stroke-width="2"/>
+        </svg>
+        <p style="text-align: center; color: rgba(255, 255, 255, 0.7); margin-top: 15px;">
+          Accuracy trending upwards across test seasons (2015-2024)
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+      <a href="predict.html" class="glow-button" style="font-size: 1.1rem; padding: 15px 40px;">
+        ⚽ Start Predicting with AI
+      </a>
+    </div>
+  </div>
+
+  <!-- Chatbox -->
+  <button id="chatIcon" class="chat-icon">💬</button>
+  
+  <div id="chatPopup" class="chat-popup">
+    <div class="chat-header">
+      Chat with ScoreSight Assistant 🤖
+      <button id="chatClose" class="chat-close">×</button>
+    </div>
+    <div id="chatBody" class="chat-body"></div>
+    <div class="chat-footer">
+      <input 
+        type="text" 
+        id="chatInput" 
+        class="chat-input" 
+        placeholder="Ask me anything..."
+      >
+      <button id="chatSend" class="chat-send">➤</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/script.js"></script>
+</body>
+</html>

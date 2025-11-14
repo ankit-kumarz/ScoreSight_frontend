@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predict Match - ScoreSight</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid" style="padding: 0 2rem;">
+      <a class="navbar-brand" href="#">⚽ ScoreSight</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Predict Match</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ai_predictor.html">AI Predictor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link user-welcome" href="#"><span class="user-icon">👤</span> Welcome, <span id="userNameNav">User</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout-link" id="logoutBtn" href="#" style="cursor: pointer;">🚪 Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="predict-container">
+    <!-- Header -->
+    <div class="predict-header">
+      <h1>🏆 EPL Match Predictor</h1>
+      <p>Input match statistics for accurate predictions</p>
+    </div>
+
+    <!-- Predict Content -->
+    <div class="predict-form-wrapper">
+      <div class="predict-form glass-card">
+        <h3 style="color: #00ffcc; margin-bottom: 25px; font-weight: 700; border-bottom: 2px solid rgba(0, 212, 255, 0.3); padding-bottom: 15px;">
+          📋 Match Details
+        </h3>
+        
+        <form id="predictForm">
+          <!-- Section 1: Basic Information -->
+          <div class="form-section">
+            <h5 style="color: #00d4ff; margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">🔹 Basic Information</h5>
+            
+            <div class="form-group">
+              <label for="matchDate" class="form-label">📅 Match Date</label>
+              <input 
+                type="date" 
+                class="form-control form-control-lg" 
+                id="matchDate" 
+                required
+              >
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="homeTeam" class="form-label">🏠 Home Team</label>
+                <select class="form-control form-control-lg" id="homeTeam" required>
+                  <option value="">Select Home Team</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="awayTeam" class="form-label">✈️ Away Team</label>
+                <select class="form-control form-control-lg" id="awayTeam" required>
+                  <option value="">Select Away Team</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Half-Time Statistics -->
+          <div class="form-section">
+            <h5 style="color: #00d4ff; margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">⏱️ Half-Time Statistics</h5>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="HTHG" class="form-label">Home Goals (Half-Time)</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="HTHG" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="HTAG" class="form-label">Away Goals (Half-Time)</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="HTAG" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Shot Statistics -->
+          <div class="form-section">
+            <h5 style="color: #00d4ff; margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">🎯 Shot Statistics</h5>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="HS" class="form-label">Home Shots</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="HS" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="AS" class="form-label">Away Shots</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="AS" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="HST" class="form-label">Home Shots on Target</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="HST" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="AST" class="form-label">Away Shots on Target</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="AST" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 4: Corners -->
+          <div class="form-section">
+            <h5 style="color: #00d4ff; margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">⛳ Corners</h5>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="HC" class="form-label">Home Corners</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="HC" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="AC" class="form-label">Away Corners</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="AC" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Fouls -->
+          <div class="form-section">
+            <h5 style="color: #00d4ff; margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">🚨 Fouls</h5>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="HF" class="form-label">Home Fouls</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="HF" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="AF" class="form-label">Away Fouls</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="AF" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 6: Cards -->
+          <div class="form-section">
+            <h5 style="color: #00d4ff; margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">🟨 Cards</h5>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="HY" class="form-label">Home Yellow Cards</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="HY" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="AY" class="form-label">Away Yellow Cards</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="AY" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="HR" class="form-label">Home Red Cards</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="HR" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="AR" class="form-label">Away Red Cards</label>
+                <input 
+                  type="number" 
+                  class="form-control form-control-lg" 
+                  id="AR" 
+                  min="0" 
+                  value="0" 
+                  required
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="glow-button predict-button" 
+            style="width: 100%; padding: 14px; margin-top: 30px; font-size: 1.1rem;"
+            title="Click to get instant AI results!"
+          >
+            🎯 Predict Match Outcome
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Prediction Result -->
+      <div class="predict-result">
+        <div id="resultCard" class="result-card glass-card">
+          <p style="text-align: center; color: rgba(255, 255, 255, 0.6); padding: 50px 20px;">
+            Fill in the form on the left and click "Predict Match Outcome" to see the AI prediction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chatbox -->
+  <button id="chatIcon" class="chat-icon">💬</button>
+  
+  <div id="chatPopup" class="chat-popup">
+    <div class="chat-header">
+      Chat with ScoreSight Assistant 🤖
+      <button id="chatClose" class="chat-close">×</button>
+    </div>
+    <div id="chatBody" class="chat-body"></div>
+    <div class="chat-footer">
+      <input 
+        type="text" 
+        id="chatInput" 
+        class="chat-input" 
+        placeholder="Ask me anything..."
+      >
+      <button id="chatSend" class="chat-send">➤</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/script.js"></script>
+</body>
+</html>
