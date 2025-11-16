@@ -5,7 +5,7 @@
 // API Base URL - Configure for production deployment
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:8000'
-  : 'https://scoresight-backend.onrender.com';  // 🔥 REPLACE with your actual Render URL
+  : 'https://scoresight-backend.onrender.com';  // Your Render backend URL
 const API_URL = `${API_BASE}/api`;
 
 // Get base URL for frontend navigation (works on any server)
